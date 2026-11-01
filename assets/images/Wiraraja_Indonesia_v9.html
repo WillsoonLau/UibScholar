@@ -1,0 +1,623 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Wiraraja Indonesia | v9</title>
+<meta name="description" content="Wiraraja Indonesia: industrial parks and renewable energy in Batam, Galang Island and Madura. Established in 1998 in Batam, Riau Islands.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='16' fill='%23C8A84B'/%3E%3Cpath d='M16 6l2.6 5.6 6.1.7-4.5 4.1 1.2 6L16 19.4l-5.4 3 1.2-6-4.5-4.1 6.1-.7z' fill='%230D2B1F'/%3E%3C/svg%3E">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+/* Palette (v2): Deep Green #0D2B1F / Brand Green #1A5C3A / Mid Green #2D7A52 / Gold #C8A84B / Gold Light #F0DFA0 / Green Tint #E8F5EE / Off-white #F4FAF6 */
+:root{
+--forest:#0D2B1F;--forest2:#143A2B;--foot:#08180F;--gold:#C8A84B;--gold2:#F0DFA0;--mint:#F0DFA0;--brand:#1A5C3A;--gmid:#2D7A52;
+--bg:#FFFFFF;--alt:#F4FAF6;--card:#FFFFFF;--tile:#E8F5EE;--tileink:#1A5C3A;
+--hd:#0D2B1F;--tx:#4A4A4A;--mut:#6E6E6E;--ln:rgba(26,92,58,.15);
+--btn:#1A5C3A;--btnx:#FFFFFF;--btnh:#2D7A52;--hl:rgba(200,168,75,.38);
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:env(safe-area-inset-top,0px)}
+[hidden]{display:none!important}
+body{font:400 16px/1.7 Inter,system-ui,sans-serif;background:var(--bg);color:var(--tx);-webkit-font-smoothing:antialiased}
+h1,h2,h3,h4{font-family:'Playfair Display',Georgia,serif;font-weight:700;line-height:1.15;color:var(--hd)}
+h1{font-size:clamp(38px,5.2vw,60px)}h2{font-size:clamp(28px,3.3vw,40px);margin-bottom:14px}h3{font-size:22px;margin-bottom:8px}
+p{max-width:68ch}
+a{color:inherit;text-decoration:none}button{font:inherit;color:inherit;cursor:pointer;background:none;border:0;text-align:inherit}
+:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
+.ti{width:1em;height:1em;stroke:currentColor;fill:none;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round;vertical-align:-.125em;flex:none}
+.w{max-width:1160px;margin:0 auto;padding:0 40px}
+
+/* nav */
+.nav{background:var(--forest);position:sticky;top:env(safe-area-inset-top,0px);z-index:30;box-shadow:0 1px 0 rgba(255,255,255,.1)}
+.nav .w{display:flex;align-items:center;justify-content:space-between;height:68px;gap:20px}
+.logo{display:flex;align-items:center;gap:11px}
+.mark{width:38px;height:38px;border-radius:50%;background:var(--gold);display:grid;place-items:center;flex:none}
+.mark svg{width:20px;height:20px;fill:var(--forest)}
+.logo b{display:block;color:#fff;font:700 14px 'Playfair Display';letter-spacing:1px;line-height:1.2}
+.logo small{display:block;color:var(--gold);font:italic 400 11px 'Playfair Display';line-height:1.3}
+.links{display:flex;gap:30px}
+.links a{color:rgba(255,255,255,.75);font-size:14px;position:relative;padding:6px 0;white-space:nowrap}
+.links a:hover,.links a.on{color:#fff}
+.links a.on::after{content:"";position:absolute;left:0;right:0;bottom:-3px;height:2px;background:var(--gold)}
+
+/* buttons */
+.btn{display:inline-flex;align-items:center;gap:8px;padding:13px 26px;border-radius:6px;font-weight:600;font-size:14px;border:1px solid transparent;transition:transform .2s,box-shadow .2s,background .2s}
+.bg{background:var(--gold);color:var(--forest)}.bg:hover{transform:translateY(-2px);box-shadow:0 8px 20px rgba(200,168,75,.35)}
+.bo{border-color:rgba(255,255,255,.45);color:#fff}.bo:hover{background:rgba(255,255,255,.1)}
+.bd{background:var(--btn);color:var(--btnx)}.bd:hover{background:var(--btnh)}
+.bl{border-color:var(--hd);color:var(--hd)}.bl:hover{background:var(--tile)}
+
+/* page switch */
+.pg{display:none}.pg.on{display:block;animation:fd .35s ease}@keyframes fd{from{opacity:0}}
+
+/* headers: forest + site-plan grid + gold glow (v2 concept) */
+.hero,.ph,.hl{background:radial-gradient(560px circle at var(--mx,78%) var(--my,18%),rgba(200,168,75,.17),transparent 65%),repeating-linear-gradient(90deg,rgba(255,255,255,.05) 0 1px,transparent 1px 84px),repeating-linear-gradient(0deg,rgba(255,255,255,.05) 0 1px,transparent 1px 84px),var(--forest)}
+.hero,.ph{position:relative;color:#fff;overflow:hidden;box-shadow:inset 0 -1px 0 rgba(200,168,75,.55)}
+.hero::after,.ph::after{content:"";position:absolute;right:-220px;bottom:-330px;width:900px;height:900px;pointer-events:none;background:radial-gradient(circle,transparent 0 296px,rgba(255,255,255,.15) 297px 298px,transparent 299px 372px,rgba(255,255,255,.1) 373px 374px,transparent 375px 450px,rgba(255,255,255,.06) 451px 452px,transparent 453px)}
+.hero>.w,.ph>.w,.hstats{position:relative;z-index:1}
+.rule{display:block;width:64px;height:3px;background:var(--gold);margin:22px 0}
+.hero h1,.ph h1{color:#fff}
+.hero-g{display:grid;grid-template-columns:1.05fr .95fr;gap:56px;align-items:center;padding-top:88px;padding-bottom:72px}
+.sub{color:rgba(255,255,255,.8);font-size:18px;max-width:52ch;margin-bottom:32px}
+.acts{display:flex;gap:12px;flex-wrap:wrap}
+.hstats{background:var(--gold);border-top:0}
+.hstats .w{display:grid;grid-template-columns:repeat(4,1fr)}
+.hstats .w>div{padding:26px 24px 26px 0;border-right:1px solid rgba(13,43,31,.2);margin-right:24px}
+.hstats .w>div:last-child{border:0}
+.hstats b{display:block;font:700 42px/1.1 'Playfair Display';color:var(--forest)}.hstats b small{font:600 16px Inter;margin-left:4px}
+.hstats span{font-size:14px;color:rgba(13,43,31,.75);display:block;max-width:24ch}
+.ph{padding:84px 0 68px}
+.ph h1{font-size:clamp(34px,4.6vw,52px);margin-bottom:0}
+.ph p{color:rgba(255,255,255,.8);max-width:56ch;font-size:17px}
+.ph-g{display:grid;grid-template-columns:.9fr 1.1fr;gap:52px;align-items:center}
+.rise>*{animation:rs .8s cubic-bezier(.2,.7,.2,1) both}.rise>*:nth-child(2){animation-delay:.1s}.rise>*:nth-child(3){animation-delay:.2s}.rise>*:nth-child(4){animation-delay:.3s}@keyframes rs{from{opacity:0;transform:translateY(20px)}}
+
+/* sections */
+.sec{padding:88px 0}.alt{background:var(--alt)}.dk{background:var(--forest);color:rgba(255,255,255,.82)}.dk h2,.dk h3{color:#fff}
+.lead{color:var(--tx);max-width:62ch;margin-bottom:36px;font-size:17px}.dk .lead{color:rgba(255,255,255,.75)}
+.g{display:grid;gap:22px}.g2{grid-template-columns:repeat(2,1fr)}.g3{grid-template-columns:repeat(3,1fr)}.g4{grid-template-columns:repeat(4,1fr)}
+.sp{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}.top{align-items:start}.sp.c1{grid-template-columns:.7fr 1.3fr}.sp.c2{grid-template-columns:.8fr 1.2fr}.sp.c3{grid-template-columns:.9fr 1.1fr}
+.sub-h{margin:64px 0 20px;font-size:28px}
+.sub-h:first-child{margin-top:0}
+.tag{display:inline-block;background:var(--tile);color:var(--tileink);border-radius:99px;padding:3px 14px;font-size:13px;font-weight:600;margin-bottom:12px}
+.hlt{box-shadow:inset 0 -.42em 0 var(--hl)}
+
+/* components */
+.card{background:var(--card);border:1px solid var(--ln);border-radius:14px;padding:26px}
+.card p{font-size:15px}.card h3{font-size:20px}
+.ic{width:46px;height:46px;border-radius:10px;background:var(--tile);color:var(--tileink);display:grid;place-items:center;font-size:22px;margin-bottom:16px}
+.ck{list-style:none;margin-top:14px}
+.ck li{padding:9px 0 9px 30px;position:relative;border-bottom:1px solid var(--ln)}.ck li:last-child{border:0}
+.ck li::before{content:"";position:absolute;left:4px;top:15px;width:12px;height:7px;border-left:2px solid var(--gold);border-bottom:2px solid var(--gold);transform:rotate(-45deg)}
+.dk .ck li{border-color:rgba(255,255,255,.14)}
+.sr{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));border-top:2px solid var(--gold);margin:34px 0}
+.sr>div{padding:22px 22px 6px 0}
+.sr b{display:block;font:700 36px/1.1 'Playfair Display';color:var(--hd)}.sr b small{font:600 15px Inter;margin-left:3px}
+.sr span{font-size:14px;color:var(--mut)}
+.dk .sr b{color:var(--gold)}.dk .sr span{color:rgba(255,255,255,.7)}
+
+/* placeholders */
+.slot{position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;gap:4px;border-radius:14px;aspect-ratio:var(--ar,16/9);min-height:180px;padding:18px;color:var(--tx);background:repeating-linear-gradient(135deg,rgba(13,43,31,.04) 0 12px,transparent 12px 24px),var(--alt);border:1.5px dashed var(--gold);width:100%}
+.slot .ti{font-size:30px;color:var(--gold);margin-bottom:6px}
+.slot b{font-size:14px;color:var(--hd);max-width:34ch}.slot span{font-size:12.5px;color:var(--mut)}
+.slot.on-dk{background:repeating-linear-gradient(135deg,rgba(255,255,255,.05) 0 12px,transparent 12px 24px),rgba(255,255,255,.05);color:rgba(255,255,255,.8)}
+.slot.on-dk b{color:#fff}.slot.on-dk span{color:rgba(255,255,255,.65)}
+.slot.tile{align-items:flex-start;justify-content:flex-end;text-align:left;aspect-ratio:4/3;gap:2px}
+.slot.tile .ti{position:absolute;top:16px;right:16px;margin:0;font-size:24px}
+.slot.tile b{font-size:16px}
+.tbd{display:inline-block;background:rgba(200,168,75,.16);border:1px dashed var(--gold);border-radius:6px;padding:0 9px;font-size:.92em;color:inherit;line-height:1.6}
+.soon{display:flex;gap:16px;align-items:flex-start;border:1.5px dashed var(--gold);border-radius:14px;padding:26px;background:var(--card)}
+.soon .ic{margin:0}
+
+/* tabs */
+.tabs{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:26px}
+.tab{border:1.5px solid var(--ln);background:var(--card);border-radius:99px;padding:9px 20px;font-weight:500;font-size:15px;display:inline-flex;align-items:center;gap:8px;transition:.2s;color:var(--hd)}
+.tab:hover{border-color:var(--hd)}
+.tab[aria-selected=true]{background:var(--btn);border-color:var(--btn);color:var(--btnx)}
+.vtabs{display:grid;gap:10px;align-content:start}
+.vtabs .tab{border-radius:10px;padding:14px 18px;justify-content:flex-start;width:100%}
+
+/* pillar selector */
+.psel{display:grid;gap:12px}
+.pcard{display:grid;grid-template-columns:46px 1fr 22px;gap:16px;align-items:center;width:100%;padding:16px 20px;border-radius:12px;border:1px solid rgba(255,255,255,.26);background:rgba(255,255,255,.06);color:#fff;transition:background .2s,border-color .2s,transform .2s}
+.pcard:hover{border-color:var(--gold);transform:translateX(-3px)}
+.pcard .pi{width:46px;height:46px;border-radius:10px;background:rgba(255,255,255,.14);color:var(--mint);display:grid;place-items:center;font-size:22px}
+.pcard small{display:block;font-size:13px;color:var(--gold2);font-weight:500}
+.pcard b{display:block;font:600 16px/1.35 Inter}
+.pcard em{display:block;font-style:normal;font-size:13px;opacity:.75}
+.pcard .pk{font-size:20px;opacity:0;color:var(--forest)}
+.pcard[aria-selected=true]{background:var(--mint);border-color:var(--mint);color:var(--forest);box-shadow:inset 5px 0 0 var(--gold)}
+.pcard[aria-selected=true] .pi{background:var(--forest);color:var(--mint)}
+.pcard[aria-selected=true] small{color:#5C4A12}
+.pcard[aria-selected=true] .pk{opacity:1}
+.det{animation:fd .35s ease}
+
+/* distance rows */
+.dist{display:grid}
+.dr{display:grid;grid-template-columns:40px 1fr auto;gap:2px 14px;align-items:center;padding:14px 0;border-bottom:1px solid var(--ln)}
+.dr:last-child{border:0}
+.di{width:40px;height:40px;border-radius:9px;background:var(--tile);color:var(--tileink);display:grid;place-items:center;font-size:20px}
+.dr b{font:700 20px 'Playfair Display';color:var(--hd);text-align:right;white-space:nowrap}
+.dbar,.hbar{grid-column:2/-1;height:6px;border-radius:6px;background:var(--tile);position:relative;overflow:hidden;margin-top:6px}
+.dbar::after,.hbar::after{content:"";position:absolute;inset:0;width:0;background:linear-gradient(90deg,#1A5C3A,var(--gold));transition:width 1.1s cubic-bezier(.2,.7,.2,1)}
+.seen .dbar::after,.seen .hbar::after{width:var(--w)}
+
+/* highlight card: within 45 minutes */
+.hl{position:relative;overflow:hidden;color:#fff;border-radius:22px;padding:52px;border:1px solid rgba(200,168,75,.6)}
+.hl::after{content:"";position:absolute;right:-260px;top:-300px;width:800px;height:800px;pointer-events:none;background:radial-gradient(circle,transparent 0 246px,rgba(255,255,255,.13) 247px 248px,transparent 249px 322px,rgba(255,255,255,.09) 323px 324px,transparent 325px)}
+.hl>*{position:relative;z-index:1}
+.hl h2{color:#fff;margin-bottom:10px}.hl p{color:rgba(255,255,255,.78)}
+.hl-h{display:flex;justify-content:space-between;align-items:flex-end;gap:32px;flex-wrap:wrap;margin-bottom:36px}
+.hl-big{text-align:right}.hl-big b{display:block;font:700 72px/1 'Playfair Display';color:var(--gold)}.hl-big b small{font:600 22px Inter;margin-left:6px}.hl-big span{font-size:14px;color:rgba(255,255,255,.75)}
+.hl-g{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:rgba(255,255,255,.18);border:1px solid rgba(255,255,255,.18);border-radius:14px;overflow:hidden}
+.hl-t{background:var(--forest2);padding:24px 24px 22px}
+.hl-t .ti{font-size:22px;color:var(--mint)}
+.hl-t .m{display:block;font:700 44px/1.1 'Playfair Display';color:var(--gold);margin:12px 0 2px}.hl-t .m small{font:500 15px Inter;color:rgba(255,255,255,.7);margin-left:4px}
+.hl-t span.n{display:block;color:rgba(255,255,255,.85);font-size:15px}
+.hl-t .hbar{background:rgba(255,255,255,.14);grid-column:auto;margin-top:16px}
+.hl-f{margin-top:22px;font-size:14px}
+
+/* pillars home panels */
+.pp{border-radius:16px;padding:34px;background:var(--alt);border:1px solid var(--ln)}
+.pp h3{font-size:26px}
+.pp .go{display:flex;justify-content:space-between;align-items:center;padding:13px 0;border-top:1px solid var(--ln);font-weight:600;color:var(--hd);transition:padding .2s}
+.pp .go:hover{padding-left:6px}
+.pp .go small{display:block;font-weight:400;font-size:13px;color:var(--mut)}
+.pp .go .ti{font-size:20px}
+
+/* value / vision panels */
+.vm{background:var(--tile);border-radius:16px;padding:34px;color:var(--tileink)}
+.vm h3{color:var(--tileink);font-size:28px}.vm p,.vm li{color:var(--tileink);font-size:16px}.vm ul{padding-left:20px}.vm li{margin-bottom:8px}
+.vm .ic{background:var(--forest);color:var(--mint)}
+.vd{display:grid;grid-template-columns:1fr 150px;gap:32px;align-items:center;background:var(--forest);color:#fff;border-radius:16px;padding:40px}
+.vd h3{color:var(--gold);font-size:30px;margin-bottom:12px}.vd p{font-size:17px;max-width:46ch;color:rgba(255,255,255,.85)}
+.vd .big{aspect-ratio:1;border-radius:18px;background:var(--mint);color:var(--forest);display:grid;place-items:center;font-size:64px}
+
+/* president */
+.pres{display:grid;grid-template-columns:1.25fr .75fr;gap:56px;align-items:start}
+.pres p{margin-bottom:14px;max-width:62ch}
+.sig b{display:block;font:italic 700 22px 'Playfair Display';color:var(--hd);margin-top:22px}.sig span{color:var(--mut);font-size:14px}
+.q{font:italic 400 clamp(22px,2.6vw,30px)/1.4 'Playfair Display';color:#fff;margin-bottom:18px;max-width:30ch}
+
+/* timeline */
+.tl{position:relative;display:grid;gap:48px;padding-left:44px}
+.tl::before{content:"";position:absolute;left:11px;top:8px;bottom:8px;width:2px;background:rgba(255,255,255,.2)}
+.tl::after{content:"";position:absolute;left:11px;top:8px;width:2px;height:var(--p,0%);max-height:calc(100% - 16px);background:var(--gold);transition:height .15s linear}
+.tli{position:relative;display:grid;grid-template-columns:110px 1fr 240px;gap:28px;align-items:start}
+.tli::before{content:"";position:absolute;left:-42px;top:12px;width:16px;height:16px;border-radius:50%;background:var(--forest2);border:2px solid rgba(255,255,255,.35);z-index:1;transition:.4s}
+.tli.seen::before{background:var(--gold);border-color:var(--gold);box-shadow:0 0 0 5px rgba(200,168,75,.22)}
+.tli .yr{font:700 40px/1 'Playfair Display';color:var(--gold)}
+.tli h3{font-size:22px}.tli p{color:rgba(255,255,255,.78);font-size:15.5px}
+
+/* factory */
+.fac{display:grid;grid-template-columns:.8fr 1.2fr;gap:36px;align-items:start}
+.fbig{font:700 56px/1 'Playfair Display';color:var(--hd)}.fbig small{font:600 20px Inter;margin-left:4px}
+.fsc{display:grid;gap:12px;margin-top:24px}
+.fsc div{display:grid;grid-template-columns:64px 1fr;gap:12px;align-items:center;font-size:14px;color:var(--mut)}
+.fsc i{display:block;height:10px;border-radius:6px;background:var(--tile);position:relative;overflow:hidden}
+.fsc i::after{content:"";position:absolute;inset:0;width:var(--w);background:var(--gold);border-radius:6px;opacity:.45}
+.fsc .on{color:var(--hd);font-weight:600}.fsc .on i::after{opacity:1}
+
+/* utilities */
+.util{display:grid;grid-template-columns:.7fr 1.3fr;gap:32px;align-items:start}
+.spec{display:grid;grid-template-columns:150px 1fr;gap:6px 18px;padding:14px 0;border-bottom:1px solid var(--ln);align-items:baseline}
+.spec:last-child{border:0}.spec dt{font-size:14px;color:var(--mut)}.spec dd{font-weight:500;color:var(--hd)}
+.svc{display:grid;grid-template-columns:repeat(2,1fr);gap:0 40px;margin-top:8px}
+
+/* madura */
+.zbar{display:flex;height:44px;border-radius:10px;overflow:hidden;border:1px solid var(--ln)}
+.zbar i{display:block;height:100%}
+.z1{background:#C8A84B}.z2{background:#0D2B1F}.z3{background:#2D7A52}.z4{background:#F0DFA0}.z5{background:#8A7431}.z6{background:repeating-linear-gradient(135deg,#E8F5EE 0 5px,#FFFFFF 5px 10px)}
+.zleg{display:flex;flex-wrap:wrap;gap:8px 22px;margin:16px 0 30px;font-size:14px}
+.zleg span{display:inline-flex;align-items:center;gap:8px}.zleg i{width:14px;height:14px;border-radius:4px;border:1px solid var(--ln)}
+.zc{border-top:4px solid var(--gold);background:var(--card);border-radius:4px 4px 14px 14px;padding:22px 24px;border-left:1px solid var(--ln);border-right:1px solid var(--ln);border-bottom:1px solid var(--ln)}
+.zc .ha{font:700 34px/1.1 'Playfair Display';color:var(--hd)}.zc .ha small{font:600 15px Inter;margin-left:3px}
+.zc h3{font-size:18px;margin:4px 0 10px}.zc ul{padding-left:18px;font-size:14.5px;color:var(--tx)}
+.ben{display:grid;grid-template-columns:44px 1fr;gap:14px;align-items:center;padding:16px 0;border-bottom:1px solid rgba(255,255,255,.14);color:#fff;font-weight:500}
+.ben .ic{margin:0;background:rgba(255,255,255,.14);color:var(--mint)}
+
+/* contact / forms */
+.ci{display:grid;grid-template-columns:46px 1fr;gap:16px;padding:18px 0;border-bottom:1px solid var(--ln)}
+.ci .ic{margin:0}.ci b{display:block;color:var(--hd)}
+.soc{display:flex;gap:10px;margin-top:22px}
+.soc a{width:40px;height:40px;border-radius:50%;background:var(--forest);color:var(--mint);display:grid;place-items:center;font-size:18px;transition:.2s}
+.soc a:hover{background:var(--gold);color:var(--forest)}
+form{display:grid;gap:14px}.fr{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+label{display:grid;gap:6px;font-size:13px;font-weight:600;color:var(--hd)}
+input,textarea{font:inherit;font-size:15px;padding:12px 14px;border-radius:6px;border:1px solid var(--ln);background:var(--bg);color:var(--tx);width:100%}
+input:focus,textarea:focus{border-color:var(--gold);outline:none;box-shadow:0 0 0 3px rgba(200,168,75,.25)}
+textarea{min-height:120px;resize:vertical}
+.flogo{display:flex;align-items:center;gap:12px;margin-bottom:22px}
+.flogo .mark{width:52px;height:52px}.flogo .mark svg{width:28px;height:28px}
+.flogo b{font:800 22px/1 Inter;color:var(--hd);letter-spacing:.3px}
+.play{width:64px;height:64px;border-radius:50%;background:var(--gold);color:var(--forest);display:grid;place-items:center;font-size:26px}
+
+/* cta + footer */
+.cta{text-align:center;padding:84px 0}
+.cta{background:var(--tile);border-top:3px solid var(--gold)}.cta h2{color:var(--hd);margin:0 auto 14px;max-width:20ch}.cta p{color:var(--tx);margin:0 auto 28px;max-width:54ch}.cta .acts{justify-content:center}
+footer{background:var(--foot);padding:64px 0 24px;color:rgba(255,255,255,.65);font-size:14px}
+footer .g{grid-template-columns:1.4fr 1fr 1.2fr 1.2fr;gap:36px;margin-bottom:38px}
+footer h4{color:#fff;font:600 15px Inter;margin-bottom:14px}
+footer a,footer .l{display:block;margin-bottom:8px}footer a:hover{color:var(--gold)}
+footer .gl{color:var(--gold);font-weight:600;margin-bottom:6px}
+footer p{max-width:30ch;margin:14px 0 18px}
+footer .soc{margin-top:0}footer .soc a{background:var(--forest2);margin:0}
+.fb2{border-top:1px solid rgba(255,255,255,.1);padding-top:20px;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;font-size:13px}
+.toast{position:fixed;left:50%;bottom:calc(24px + env(safe-area-inset-bottom,0px));transform:translate(-50%,30px);background:var(--forest);color:#fff;padding:12px 22px;border-radius:8px;font-weight:500;font-size:14px;opacity:0;transition:.3s;z-index:70;border:1px solid var(--gold);pointer-events:none;max-width:90vw}
+.toast.on{opacity:1;transform:translate(-50%,0)}
+#prog{position:fixed;top:0;left:0;height:3px;width:0;background:linear-gradient(90deg,var(--gold),var(--gold2));z-index:80;pointer-events:none}
+
+:root{--tx:#4A4A4A;--mut:#7A7A7A}
+/* v8: v2 type scale, hierarchy and accents */
+body{font-size:15px}h1{font-size:clamp(36px,4.8vw,54px)}h2{font-size:clamp(26px,3vw,36px)}h3{font-size:20px}
+.lead{font-size:15px;max-width:56ch}.sec{padding:72px 0}.ph h1{font-size:clamp(32px,4.2vw,44px)}.ph p,.sub{font-size:16px}
+.card h3{font-size:18px}.card p,.ck li{font-size:14px}.sub-h{font-size:22px;margin-top:56px}
+.eb{font-size:11px;font-weight:500;letter-spacing:3px;text-transform:uppercase;color:var(--brand);margin-bottom:10px}
+.ph .eb,.hero .eb,.dk .eb{color:var(--gold)}
+.nav .w{height:64px}.logo small{font:400 9px Inter;letter-spacing:2px;text-transform:uppercase}.links a{font-size:13px;letter-spacing:.5px}
+.stats-bar{background:var(--gold);padding:20px 0;display:grid;grid-template-columns:repeat(4,1fr)}
+.stat-item{text-align:center;border-right:1px solid rgba(13,43,31,.2);padding:0 20px}.stat-item:last-child{border:0}
+.stat-num{display:block;font:700 28px 'Playfair Display';color:var(--forest)}
+.stat-label{font-size:11px;letter-spacing:1px;text-transform:uppercase;color:rgba(13,43,31,.65)}
+.q{border-left:3px solid var(--gold);padding-left:22px}
+.vrow{display:flex;gap:16px;padding:14px 16px;background:rgba(255,255,255,.05);border-radius:8px;border:1px solid rgba(255,255,255,.08);margin-bottom:10px}
+.vrow:hover{background:rgba(255,255,255,.09)}.vn{font:700 28px 'Playfair Display';color:var(--gold);min-width:40px}
+.vrow h4{font:600 14px Inter;color:#fff;margin-bottom:4px}.vrow p{font-size:12px;color:rgba(255,255,255,.6);line-height:1.5}
+.vm{background:#fff;border:1px solid var(--ln);border-radius:12px;padding:32px}.vm h3{color:var(--hd);font-size:22px}.vm p,.vm li{color:var(--tx);font-size:14px;line-height:1.8}
+.vd .big{background:#fff;color:var(--gold);border:1px solid rgba(200,168,75,.5)}
+.tli{grid-template-columns:150px 1fr 240px}.tli .yr.s{font-size:26px;line-height:1.2}
+.pcard:hover{border-color:rgba(255,255,255,.55);background:rgba(255,255,255,.12)}
+.pcard[aria-selected=true],.pcard[aria-selected=true]:hover{background:#E8F5EE;border-color:#E8F5EE;box-shadow:inset 5px 0 0 var(--brand)}
+.pcard[aria-selected=true] .pi{background:var(--brand);color:#fff}.pcard[aria-selected=true] small{color:var(--gmid)}
+.g2>.card:last-child:nth-child(odd){grid-column:1/-1}
+footer h4{font:500 11px Inter;letter-spacing:2px;text-transform:uppercase;color:var(--gold)}
+footer a,footer .l{font-size:13px;color:rgba(255,255,255,.5)}footer a:hover{color:#fff}footer p{font-size:12px;color:rgba(255,255,255,.4)}
+footer .gl{color:var(--gold)}footer .logo b{color:#fff}footer .logo small{color:var(--gold)}
+@media(max-width:900px){
+.w{padding:0 20px}
+.nav .w{height:auto;flex-wrap:wrap;padding-top:10px;padding-bottom:4px;gap:6px}
+.links{gap:22px;overflow-x:auto;width:100%;padding:6px 0 12px}
+.hero-g,.ph-g,.sp,.sp.c1,.sp.c2,.sp.c3,.pres,.g2,.g3,.g4,.fac,.util,.vd,.fr,.svc,footer .g{grid-template-columns:1fr}
+.hero-g{padding-top:56px;padding-bottom:48px;gap:36px}
+.hstats .w{grid-template-columns:1fr 1fr}.hstats .w>div{border-right:0;margin-right:0;padding-right:12px}
+.sec{padding:60px 0}.hl{padding:30px 22px}.hl-g{grid-template-columns:1fr 1fr}.hl-big{text-align:left}
+.tli{grid-template-columns:1fr;gap:10px}.vd{padding:28px}.vd .big{max-width:120px;font-size:48px}
+.spec{grid-template-columns:1fr}
+}
+@media(max-width:520px){.hl-g{grid-template-columns:1fr}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}html{scroll-behavior:auto}}
+@media(max-width:900px){.stats-bar{grid-template-columns:1fr 1fr;row-gap:14px}.stat-item{border-right:0}}
+
+/* v9 */
+.eb{color:#9A7A1E}.ph .eb,.hero .eb,.dk .eb{color:var(--gold)}
+.sec .ck li{color:var(--hd);font-weight:500;font-size:14.5px}.dk .ck li{color:rgba(255,255,255,.92)}
+.v7p h2{font-size:clamp(28px,3.3vw,40px)}.v7p .lead{font-size:17px;max-width:62ch}.v7p .pp p{font-size:16px}.v7p .pp .go{font-size:16px}
+.stm{max-width:860px}.stm .q{max-width:26ch;font-size:clamp(26px,3.4vw,40px);margin-bottom:26px}
+.stm .t{font:400 clamp(17px,1.8vw,20px)/1.7 'Playfair Display',Georgia,serif;color:rgba(255,255,255,.88);max-width:58ch;margin-bottom:32px;padding-left:25px}
+.vm .ic{background:#fff;color:var(--gold);border:1px solid rgba(200,168,75,.6)}
+.tli .yr{font-size:40px}.tli .yr small{display:block;font:500 11px Inter;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.6);margin-top:10px}
+.pcard,.pcard .pi,.pcard .pk{transition:background .25s,border-color .25s,transform .25s,color .25s,opacity .25s}
+.pcard:hover{background:rgba(255,255,255,.14);border-color:rgba(255,255,255,.5);transform:translateX(-4px)}
+.pcard:hover .pi{background:#fff;color:var(--brand)}
+.pcard:not([aria-selected=true]):hover .pk{opacity:.9;color:#fff;transform:translateX(3px)}
+.pp,.card,.vm,.zc{transition:transform .25s,box-shadow .25s,border-color .25s}
+.pp:hover,.card:hover,.vm:hover,.zc:hover{transform:translateY(-4px);box-shadow:0 14px 30px rgba(13,43,31,.1);border-color:rgba(45,122,82,.4)}
+.det{animation:up .4s ease}@keyframes up{from{opacity:0;transform:translateY(8px)}}
+.nav{transition:box-shadow .3s}.nav.sc{box-shadow:0 8px 26px rgba(0,0,0,.28)}
+.rv{opacity:0;transform:translateY(22px);transition:opacity .7s ease,transform .7s cubic-bezier(.2,.7,.2,1)}.rv.rv-in{opacity:1;transform:none}
+</style></head><body>
+<div id="prog" aria-hidden="true"></div>
+<nav class="nav"><div class="w"><a class="logo" href="#home" aria-label="Wiraraja Indonesia, home"><span class="mark"><svg viewBox="0 0 24 24"><path d="M12 2l2.9 6.3 6.9.7-5.2 4.6 1.5 6.8L12 17l-6.1 3.4 1.5-6.8L2.2 9l6.9-.7z"/></svg></span><span><b>WIRARAJA INDONESIA</b><small>Untukmu Indonesiaku</small></span></a><div class="links" id="nav"></div></div></nav>
+<main id="app">
+<div class="pg" id="home"></div>
+<div class="pg" id="about"></div>
+<div class="pg" id="pillars"></div>
+<div class="pg" id="invest"></div>
+<div class="pg" id="csr"></div>
+<div class="pg" id="contact"></div>
+</main>
+<footer><div class="w"><div class="g">
+<div><a class="logo" href="#home"><span class="mark"><svg viewBox="0 0 24 24"><path d="M12 2l2.9 6.3 6.9.7-5.2 4.6 1.5 6.8L12 17l-6.1 3.4 1.5-6.8L2.2 9l6.9-.7z"/></svg></span><span><b>WIRARAJA INDONESIA</b></span></a><p>Wiraraja Indonesia aims to continuously innovate towards a “Golden Indonesia”.</p><div class="soc" id="fsoc"></div></div>
+<div><h4>Information</h4><a href="#" data-soon="Gallery is not part of this prototype yet.">Gallery</a><a href="#" data-soon="FAQ is not part of this prototype yet.">FAQ</a><a href="#" data-soon="Career is not part of this prototype yet.">Career</a><a href="#" data-soon="E-Brochure is not part of this prototype yet.">E-Brochure</a><a href="#" data-soon="Terms and Conditions is not part of this prototype yet.">Terms and Conditions</a></div>
+<div><h4>Our Location</h4><span class="l gl">Head Office</span><span class="l">Jl. Wiraraja Industrial Estate<br>Blok A No. 1 - 5, Kabil, Nongsa,<br>Batam City, Riau Islands<br>Indonesia 29467</span></div>
+<div><h4>Contact Us</h4><a href="mailto:market@wiraraja.com">market@wiraraja.com</a><a href="tel:+627787100798">(+62) 778-7100798</a><h4 style="margin-top:22px">Operational Hour</h4><span class="l">Mon - Fri : 08:00 - 17:00 (GMT+7)<br>Sat : 08:00 - 12:00 (GMT+7)<br>Closed on Sunday &amp; PH</span></div>
+</div><div class="fb2"><span>Copyright © 2026 Wiraraja Indonesia</span></div></div></footer>
+<div class="toast" id="toast" role="status"></div>
+
+<script>
+const $=(s,r=document)=>r.querySelector(s),$$=(s,r=document)=>[...r.querySelectorAll(s)];
+const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+/* icons (24px stroke) */
+const P={
+factory:'M3 21h18M5 21V10l5 3v-3l5 3V4h4v17',solar:'M4 14h16l-2 6H6zM12 3v3M5 6l2 2M19 6l-2 2M8 14l1 6M16 14l-1 6',
+bolt:'M13 2 4 14h7l-1 8 9-12h-7z',drop:'M12 3s6 7 6 11a6 6 0 0 1-12 0c0-4 6-11 6-11z',wifi:'M2 9a15 15 0 0 1 20 0M5 13a10 10 0 0 1 14 0M9 17a4 4 0 0 1 6 0M12 20v.01',
+fire:'M12 3c1 4 5 5 5 10a5 5 0 0 1-10 0c0-2 1-3 2-4 0 2 1 3 2 3 0-3-1-6 1-9z',road:'M8 3 4 21M16 3l4 18M12 4v3M12 11v3M12 18v3',
+pin:'M12 21s-6-6-6-11a6 6 0 0 1 12 0c0 5-6 11-6 11zM12 8a2 2 0 1 0 0 4 2 2 0 0 0 0-4z',
+phone:'M6 4h4l2 5-2.5 1.5a11 11 0 0 0 4.5 4.5L15.5 12l5 2v4a2 2 0 0 1-2 2A15 15 0 0 1 4 6a2 2 0 0 1 2-2z',
+mail:'M5 5h14a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2zM3 7l9 6 9-6',clock:'M12 3a9 9 0 1 0 0 18 9 9 0 0 0 0-18zM12 7v5l3 2',
+users:'M9 4.5a3.5 3.5 0 1 0 0 7 3.5 3.5 0 0 0 0-7zM2.5 20c0-3.5 3-6 6.5-6s6.5 2.5 6.5 6M17 6.5a2.5 2.5 0 1 1 0 5M17 14c2.5 0 4.5 1.8 4.5 4.5',
+chart:'M5 20v-8M12 20V5M19 20V9',ship:'M3 17l2 4h14l2-4zM6 17V9h12v8M12 5v4',
+plane:'M21 15l-8-4V5a1 1 0 0 0-2 0v6l-8 4v2l8-2v4l-2 1.5V22l3-1 3 1v-1.5L13 19v-4l8 2z',
+anchor:'M12 4a2 2 0 1 0 0 4 2 2 0 0 0 0-4zM12 8v13M5 13a7 7 0 0 0 14 0M8 12H5M16 12h3',
+bag:'M6 8h12l1 12H5zM9 8a3 3 0 0 1 6 0',building:'M4 21V5h10v16M14 10h6v11M8 9h2M8 13h2M8 17h2M17 14v.01M17 18v.01',
+leaf:'M5 19c0-8 5-13 14-14 0 9-5 14-14 14zM5 19l7-7',cycle:'M4 12a8 8 0 0 1 14-5M20 12a8 8 0 0 1-14 5M18 3v4h-4M6 21v-4h4',
+bed:'M3 19V6M3 14h18v5M21 14v-3a3 3 0 0 0-3-3h-7v6M7 11.5a1.5 1.5 0 1 0 0-.01',
+play:'M8 5v14l11-7z',image:'M4 5h16v14H4zM4 16l5-5 4 4 3-3 4 4M9 9.5v.01',
+scales:'M12 4v16M7 20h10M5 8h14M5 8l-2.5 6a3 3 0 0 0 5 0zM19 8l-2.5 6a3 3 0 0 0 5 0z',
+seal:'M12 3l2.4 1.7 3-.1.9 2.9 2.4 1.8-.9 2.8.9 2.8-2.4 1.8-.9 2.9-3-.1L12 21l-2.4-1.7-3 .1-.9-2.9-2.4-1.8.9-2.8-.9-2.8 2.4-1.8.9-2.9 3 .1zM9 12l2 2 4-4',
+bulb:'M9 18h6M10 21h4M12 3a6 6 0 0 0-4 10.5c.8.8 1 1.5 1 2.5h6c0-1 .2-1.7 1-2.5A6 6 0 0 0 12 3z',
+chat:'M4 5h16v11H9l-5 4z',heart:'M12 20s-8-5-8-11a4.5 4.5 0 0 1 8-2.5A4.5 4.5 0 0 1 20 9c0 6-8 11-8 11z',
+percent:'M5 19L19 5M7.5 8.5a1.5 1.5 0 1 0 0-.01M16.5 17.5a1.5 1.5 0 1 0 0-.01',
+doc:'M7 3h7l4 4v14H7zM14 3v4h4M10 14l2 2 3-4',passport:'M6 3h12v18H6zM12 8.5a3 3 0 1 0 0 .01M9 17h6',
+globe:'M12 3a9 9 0 1 0 0 18 9 9 0 0 0 0-18zM3 12h18M12 3c3 3 3 15 0 18M12 3c-3 3-3 15 0 18',
+shield:'M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z',cap:'M2 9l10-5 10 5-10 5zM6 11.5V16c0 1.5 3 3 6 3s6-1.5 6-3v-4.5',
+coins:'M12 3c-4 0-7 1.3-7 3s3 3 7 3 7-1.3 7-3-3-3-7-3zM5 6v6c0 1.7 3 3 7 3s7-1.3 7-3V6M5 12v6c0 1.7 3 3 7 3s7-1.3 7-3v-6',
+box:'M3 8l9-5 9 5v12H3zM3 8l9 5 9-5M12 13v8',
+data:'M4 6a8 3 0 1 0 16 0 8 3 0 1 0-16 0M4 6v6c0 1.7 3.6 3 8 3s8-1.3 8-3V6M4 12v6c0 1.7 3.6 3 8 3s8-1.3 8-3v-6',
+bridge:'M2 17h20M4 17V8M20 17V8M4 9c5 0 3 5 8 5s3-5 8-5',link:'M10 14a4 4 0 0 0 5.7 0l3-3a4 4 0 0 0-5.7-5.7l-1 1M14 10a4 4 0 0 0-5.7 0l-3 3a4 4 0 0 0 5.7 5.7l1-1',
+cog:'M12 8a4 4 0 1 0 0 8 4 4 0 0 0 0-8zM12 2v3M12 19v3M2 12h3M19 12h3M5 5l2 2M17 17l2 2M19 5l-2 2M7 17l-2 2',
+target:'M12 3a9 9 0 1 0 0 18 9 9 0 0 0 0-18zM12 7a5 5 0 1 0 0 10 5 5 0 0 0 0-10zM12 11a1 1 0 1 0 0 2 1 1 0 0 0 0-2z',
+arrow:'M5 12h14M13 6l6 6-6 6',check:'M5 12l5 5 9-10',download:'M12 4v11M7 11l5 5 5-5M5 20h14',
+insta:'M8 4h8a4 4 0 0 1 4 4v8a4 4 0 0 1-4 4H8a4 4 0 0 1-4-4V8a4 4 0 0 1 4-4zM12 9a3 3 0 1 0 0 6 3 3 0 0 0 0-6zM17 7v.01',
+linkedin:'M7 10v7M7 7v.01M11 17v-7M11 13a3 3 0 0 1 6 0v4',youtube:'M6 6h12a3 3 0 0 1 3 3v6a3 3 0 0 1-3 3H6a3 3 0 0 1-3-3V9a3 3 0 0 1 3-3zM10 9.5v5l4-2.5z'};
+const ic=(n,c='')=>`<svg class="ti ${c}" viewBox="0 0 24 24" aria-hidden="true"><path d="${P[n]}"/></svg>`;
+const slot=(label,size,o={})=>`<div class="slot ${o.c||''}" style="--ar:${o.ar||'16/9'}" role="img" aria-label="Placeholder: ${label}">${ic(o.i||'image')}<b>${label}</b><span>${size}</span></div>`;
+const tbd=t=>`<span class="tbd">${t}</span>`;
+const soon=(icn,t,d)=>`<div class="soon"><div class="ic">${ic(icn)}</div><div><h3 style="font-size:19px">${t}</h3><p>${d}</p></div></div>`;
+const stats=(rows,st='')=>`<div class="sr" style="${st}">${rows.map(r=>`<div><b>${r[0]}${r[1]?`<small>${r[1]}</small>`:''}</b><span>${r[2]}</span></div>`).join('')}</div>`;
+const dist=(rows)=>`<div class="dist">${rows.map(r=>`<div class="dr"><span class="di">${ic(r[0])}</span><span>${r[1]}</span><b>${r[2]}</b>${r[3]!=null?`<i class="dbar" style="--w:${r[3]}%"></i>`:''}</div>`).join('')}</div>`;
+const tabs=(g,items,sel=0,cls='')=>`<div class="tabs ${cls}" role="tablist">${items.map((t,i)=>`<button class="tab" role="tab" data-tg="${g}" data-i="${i}" aria-selected="${i==sel}">${t[0]?ic(t[0]):''}${t[1]}</button>`).join('')}</div>`;
+const S=(inner,cls='')=>`<section class="sec ${cls}"><div class="w">${inner}</div></section>`;
+const FTZ=`<p style="margin-bottom:14px">Our Industrial Park is strategically located in a Free Trade Zone (FTZ) providing us competitive advantages in export-oriented business whether in manufacturing, operations, and trade activities.</p><p style="margin-bottom:14px">Learn more about the advantages of Free Trade Zone (FTZ) on the <a href="#invest" class="hlt" style="font-weight:600;color:var(--hd)">Investment Insights</a> page.</p>`;
+const TEAM=`<p style="margin-bottom:26px">Our team is always available for you to provide solutions to your needs. Do not hesitate to contact us in order to assist you finding the right investment solutions for your business.</p><div class="acts"><a class="btn bg" href="#contact">Contact Us</a><a class="btn bd" href="#" data-soon="PDF download: add the brochure link here.">${ic('download')}Download PDF</a></div>`;
+
+/* ============ PAGES ============ */
+const PG={};const VR=[['Integrity','Ethical standards in every practice'],['Quality','Excellence in every deliverable'],['Innovative','Continuously solving new challenges'],['Collaborative','Growing together with partners'],['Customer Delight','Exceeding expectations always']];
+PG.home=()=>`
+<header class="hero"><div class="w hero-g"><div class="rise"><p class="eb">Est. 1998 · Batam, Riau Islands</p><h1>One Idea Changes The World</h1><i class="rule"></i><p class="sub">Empowering Indonesia, building up the nation through integrated products, services, and solutions with quality and long-term value creations to our stakeholders worldwide.</p><div class="acts"><a class="btn bg" href="#pillars">Explore business pillars</a><a class="btn bo" href="#about">Learn more</a></div></div>
+${slot('Hero photo: warehouse or industrial park','1600 × 1280 px, landscape',{ar:'5/4',c:'on-dk'})}</div>
+    <div class="stats-bar">
+      <div class="stat-item">
+        <span class="stat-num">26+</span>
+        <span class="stat-label">Years of Growth</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-num">4</span>
+        <span class="stat-label">Business Sectors</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-num">FTZ</span>
+        <span class="stat-label">Free Trade Zone</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-num">40m</span>
+        <span class="stat-label">From Singapore</span>
+      </div>
+    </div>
+
+<section class="sec v7p"><div class="w"><p class="eb">What We Do</p><h2>Our business pillars</h2><p class="lead">Wiraraja Indonesia engages in Industrial Park and Renewable Energy, two pillars working toward one vision: a Golden Indonesia.</p>
+<div class="g g2">
+<div class="pp"><div class="ic">${ic('factory')}</div><h3>Industrial Park</h3><p style="margin-bottom:20px">One-stop solutions for companies seeking to invest in manufacturing operations, from ready-built factories and industrial land lots to professional industrial estate management.</p>
+<a class="go" href="#pillars/park"><span>Wiraraja Industrial Park I<small>Kabil, Nongsa, Batam</small></span>${ic('arrow')}</a>
+<a class="go" href="#pillars/madura"><span>Wiraraja Madura Industrial Estate III<small>Special Economic Zone, Madura Island</small></span>${ic('arrow')}</a></div>
+<div class="pp"><div class="ic">${ic('solar')}</div><h3>Renewable Energy</h3><p style="margin-bottom:20px">Wiraraja Green Renewable Energy and Smart-Eco Industrial Park II on Galang Island, a Smart-Eco Thematic Industrial Park with a total area of 851 ha.</p>
+<a class="go" href="#pillars/energy"><span>Green Renewable Energy and Smart-Eco Industrial Park II<small>Solar farm, gas powerplant, waste management and energy</small></span>${ic('arrow')}</a></div>
+</div></div></section>
+
+<section class="sec alt"><div class="w sp"><div>${slot('Photo: Industrial Park I aerial view','1600 × 900 px',{})}</div><div><p class="eb">Why Wiraraja</p><h2>One-stop solution for your investment</h2><p class="lead" style="margin-bottom:10px">Our company aims to provide you bright solutions to move your business forward. Create impact together, reach new heights together.</p>
+<ul class="ck" style="margin-bottom:26px"><li>Free Trade Zone (FTZ) benefits for export-oriented business</li><li>16 minutes to Hang Nadim Airport and a 40-minute ferry crossing to Singapore</li><li>Factory types A, B and C, with industrial land lots for specific requirements</li></ul><a class="btn bd" href="#invest">See investment insights</a></div></div></section>
+
+<section class="sec dk"><div class="w"><div class="stm"><blockquote class="q">“We are committed to driving positive change and growth by delivering integrated business solutions.”</blockquote><p class="t">Wiraraja Indonesia was established in 1998 in Batam, Riau Islands. We engage in Industrial Park, Manufacturing, Mining, and Renewable Energy, continuously growing and creating value for all stakeholders in our mission to empower Indonesia.</p><a class="btn bg" href="#about" style="margin-left:25px">Read our story</a></div></div></section>
+
+`;
+
+/* ---- ABOUT ---- */
+const VAL=[['scales',...VR[0]],['seal',...VR[1]],['bulb',...VR[2]],['chat',...VR[3]],['heart',...VR[4]]];
+PG.about=()=>`
+<header class="ph"><div class="w rise"><p class="eb">About Us</p><h1 style="max-width:16ch">One-stop Solution for Your Investment</h1><i class="rule"></i><p style="margin-bottom:28px">Our company aims to provide you bright solutions to move your business forward. Create impact together, reach new heights together.</p><a class="btn bg" href="#" data-soon="Company video: add the YouTube or MP4 link here.">${ic('play')}Watch video</a></div></header>
+
+<section class="sec alt"><div class="w"><p class="eb">About Wiraraja Indonesia</p><h2>Building a Golden Indonesia, Together</h2><div style="margin:26px 0 34px">${slot('Photo or render: head office building','1920 × 800 px, wide',{ar:'12/5'})}</div>
+<div style="display:grid;gap:14px"><p>Wiraraja Indonesia was established in 1998 in Batam, Riau Islands, Indonesia, and engages in Industrial Park and Renewable Energy.</p><p>Wiraraja Indonesia continues to grow and add value by executing in alignment with its vision, mission and core values, creating value for all stakeholders in its mission to empower Indonesia.</p><p>Empowering Indonesia, building up the nation through integrated products, services, and solutions with quality and long-term value creation to our stakeholders worldwide: Wiraraja Indonesia aims to continuously innovate towards a “Golden Indonesia”.</p></div></div></section>
+
+<section class="sec"><div class="w pres"><div><p class="eb">Leadership Message</p><h2>A Message from Our President Director</h2>
+<p>In Wiraraja Indonesia, we are committed to driving positive change and growth by delivering integrated business solutions through our business pillars. We aim to generate a sustainable future for our stakeholders, while improving the lives of many.</p>
+<p>We always on the lookout for creating milestones and path for partnerships with notable partners and clients across the globe. In the future, we envision our organization as a valuable partner who provide the best solutions to our stakeholders in the ever-changing needs.</p>
+<p>We are thankful for your support and look forward to crafting a better future together.</p><p><strong>#UntukmuIndonesiaku</strong></p><p>Best Regards,</p>
+<div class="sig"><b>Akhmad Ma’ruf</b><span>President Director</span></div></div>
+<div>${slot('Portrait: Akhmad Ma’ruf, President Director','900 × 1125 px, portrait, plain background',{ar:'4/5',i:'users'})}</div></div></section>
+
+<section class="sec alt"><div class="w"><p class="eb">Direction</p><h2>Vision and mission</h2><p class="lead" style="margin-bottom:38px">Discover how our vision and mission help shape our company’s core values which serves as a roadmap of our shared goals.</p>
+<div class="g g2"><div class="vm"><div class="ic">${ic('target')}</div><h3>Vision</h3><p>To be the leading Company in Asia that provides integrated products, services, and solutions with quality and long-term value creation to our stakeholders worldwide.</p></div>
+<div class="vm"><div class="ic">${ic('users')}</div><h3>Mission</h3><ul><li>To collaborate with strategic partners to provide a better life for the community as well as bring welfare and prosperity to the stakeholders</li><li>To continuously innovate towards a golden Indonesia</li></ul></div></div></div></section>
+
+<section class="sec"><div class="w"><p class="eb">What We Stand For</p><h2>Company values</h2><div style="height:14px"></div>
+${tabs('val',VAL.map(v=>[v[0],v[1]]))}
+${VAL.map((v,i)=>`<div class="vd det" role="tabpanel" data-pn="val" data-i="${i}" ${i?'hidden':''}><div><h3>${v[1]}</h3><p>${v[2]||tbd('isi: deskripsi nilai '+v[1]+' dari website asli')}</p></div><div class="big">${ic(v[0])}</div></div>`).join('')}</div></section>
+
+<section class="sec dk"><div class="w"><p class="eb">Our Journey</p><h2>Milestone</h2><p class="lead" style="margin-bottom:46px">Growth, impact, and continuous innovation, one step at a time.</p>
+<div class="tl" id="tl">
+<div class="tli"><div class="yr">1998<small>Founded</small></div><div><h3>Manufacturing: Blown-Film Line</h3><p>Wiraraja Indonesia was established in 1998 in Batam, Riau Islands, Indonesia. Our blown-film line focused on producing PE bags, PP bags, electronics covers, furniture covers, biodegradable plastics, agricultural films, recycling plastics, and recycled pellets.</p></div>${slot('Photo: 1998 blown-film line','1200 × 900 px',{ar:'4/3',c:'on-dk'})}</div>
+<div class="tli"><div class="yr"><span class="tbd" style="font-size:24px">20XX</span><small>Growth phase</small></div><div><h3>Industrial Park Development</h3><p>Launch of Wiraraja Industrial Park I, a full-scale industrial estate offering factory buildings, warehouses, and distribution centers for manufacturing companies.</p></div>${slot('Photo: Industrial Park I','1200 × 900 px',{ar:'4/3',c:'on-dk'})}</div>
+<div class="tli"><div class="yr">2023<small>Expansion</small></div><div><h3>Green Renewable Energy and Smart-Eco Industrial Park II</h3><p>Established in 2023 at Galang Island, Riau Islands, Indonesia, with a total area of 851 ha, reinforcing Wiraraja’s role in supporting Indonesia’s national development.</p></div>${slot('Photo: Galang Island park','1200 × 900 px',{ar:'4/3',c:'on-dk'})}</div>
+<div class="tli"><div class="yr">2026<small>Present</small></div><div><h3>Three estates, one Golden Indonesia</h3><p>Today Wiraraja runs Industrial Park I in Batam, the Green Renewable Energy and Smart-Eco Industrial Park II on Galang Island, and Madura Industrial Estate III in a Special Economic Zone, and keeps building toward a Golden Indonesia.</p></div>${slot('Photo: Madura Industrial Estate III','1200 × 900 px',{ar:'4/3',c:'on-dk'})}</div>
+</div></div></section>`;
+
+/* ---- BUSINESS PILLARS ---- */
+const PS=[['park','factory','Industrial Park','Wiraraja Industrial Park I','Kabil, Nongsa, Batam'],['energy','solar','Renewable Energy','Green Renewable Energy and Smart-Eco Industrial Park II','Galang Island, Riau Islands'],['madura','building','Industrial Park (SEZ)','Wiraraja Madura Industrial Estate III','Madura Island, Bangkalan']];
+PG.pillars=()=>`
+<header class="ph"><div class="w ph-g"><div class="rise"><p class="eb">What We Do</p><h1>Two Pillars, One Vision</h1><i class="rule"></i><p>Industrial parks and renewable energy, two pillars behind one vision. Choose an estate to see what it offers, how it is built and where it sits.</p></div><div class="psel" id="psel" role="tablist" aria-label="Choose an estate"></div></div></header>
+<div id="pd"></div>`;
+
+const PC={};
+PC.park=()=>S(`
+<h2 style="margin-bottom:24px">Wiraraja Industrial Park I</h2>
+<div class="sp top"><div>${slot('Video: aerial flythrough of Industrial Park I','Video link plus 1600 × 900 px poster',{i:'play'})}</div>
+<div><h3 style="font-size:26px">A one-stop solution for your investment</h3><p>Wiraraja Industrial Park I provides a one-stop solution for companies seeking to invest in manufacturing operations. Wiraraja Industrial Park aims to meet the diverse needs of businesses and support their growth in a conducive industrial environment with a total area of 20 ha for Wiraraja Industrial Park I Phase 1. To cater to a variety of manufacturing activities, Wiraraja Industrial Park offers:</p>
+<ul class="ck"><li>Selection of ready-built factories for companies to choose from</li><li>Industrial land lots for companies with specific requirements</li><li>Professional industrial estate management</li><li>Integrated infrastructure and facilities</li><li>Strategic location access to ports</li></ul></div></div>
+${stats([['20','ha','total area, Phase 1'],['48','','industrial buildings across Blocks A, B and C'],['3','','factory types, ±5,000 to ±20,000 m²'],['FTZ','','Free Trade Zone location']])}
+
+<h3 class="sub-h">Park layout</h3>
+${slot('Master plan render: Blocks A, B and C','1920 × 900 px, aerial with block overlay',{ar:'21/9'})}
+<div class="g g3" style="margin-top:22px">${[['Block A','26','industrial buildings'],['Block B','15','industrial buildings'],['Block C','7','industrial buildings']].map(b=>`<div class="card" style="border-left:3px solid var(--gold)"><p style="font-weight:600;color:var(--hd)">${b[0]}</p><div style="font:700 44px/1.1 'Playfair Display';color:var(--hd)">${b[1]}</div><p>${b[2]}</p></div>`).join('')}</div>
+
+<h3 class="sub-h">Factory types</h3>
+${tabs('fac',[[null,'Type A'],[null,'Type B'],[null,'Type C']])}
+${[['A','5,000',25],['B','10,000',50],['C','20,000',100]].map((f,i)=>`<div class="fac det" role="tabpanel" data-pn="fac" data-i="${i}" ${i?'hidden':''}><div><div class="fbig">±${f[1]}<small>m²</small></div><p style="margin-top:6px">Factory Type ${f[0]}, with ground floor and mezzanine floor layouts.</p>
+<div class="fsc">${[['A',25,'±5,000'],['B',50,'±10,000'],['C',100,'±20,000']].map(x=>`<div class="${x[0]==f[0]?'on':''}"><span>Type ${x[0]}</span><i style="--w:${x[1]}%"></i></div>`).join('')}</div></div>
+<div class="g g2">${slot(`Floor drawing: Type ${f[0]} ground floor`,'1000 × 1250 px, PNG on light background',{ar:'4/5',i:'doc'})}${slot(`Floor drawing: Type ${f[0]} mezzanine floor`,'1000 × 1250 px, PNG on light background',{ar:'4/5',i:'doc'})}</div></div>`).join('')}
+
+<h3 class="sub-h">Infrastructure and facilities</h3>
+${tabs('utl',[['bolt','Electricity'],['drop','Clean water'],['wifi','Fiber optic communication']])}
+${[['Electricity','bolt'],['Clean water','drop'],['Fiber optic communication','wifi']].map((u,i)=>`<div class="util det" role="tabpanel" data-pn="utl" data-i="${i}" ${i?'hidden':''}>${slot('Photo: '+u[0].toLowerCase(),'1200 × 900 px',{ar:'4/3',i:u[1]})}<div><h3>${u[0]}</h3><p style="margin-bottom:10px">Available at Wiraraja Industrial Park I.</p><dl><div class="spec"><dt>Provider or source</dt><dd>${tbd('isi: penyedia / sumber')}</dd></div><div class="spec"><dt>Capacity</dt><dd>${tbd('isi: kapasitas')}</dd></div><div class="spec"><dt>Notes</dt><dd>${tbd('isi: catatan, mis. cadangan / redundansi')}</dd></div></dl></div></div>`).join('')}
+<div class="svc"><ul class="ck"><li>Professional industrial estate management</li><li>Integrated infrastructure and facilities</li></ul><ul class="ck"><li>Strategic location with access to ports</li><li>Industrial support facilities: apartment, office tower, mosque and cafetaria</li></ul></div>
+
+<h3 class="sub-h">Location</h3>
+<div class="sp top"><div>${slot('Map: Batam, Singapore and Malaysia with park inset','1200 × 1200 px, square',{ar:'1/1',i:'pin'})}</div>
+<div><p style="margin-bottom:8px">Located in Jalan Wiraraja Industrial Estate Blok A No. 3A &amp; 5, Kabil, Nongsa, Batam City, Riau Islands, Indonesia 29467.</p>
+${dist([['plane','Hang Nadim Airport','14 min'],['ship','Batam Centre, Nongsapura and Sekupang ferry terminals','30 - 40 min'],['anchor','Batu Ampar Seaport','33 min'],['bag','Nagoya Shopping Centre','30 min'],['ship','Ferry crossing to Singapore','40 min'],['globe','Johor Bahru, Malaysia','2 hours']])}</div></div>
+<div style="margin-top:44px">${FTZ}${TEAM}</div>`);
+
+const FAC2=[['Power and utilities',[['Solar farm powerplant','solar'],['Gas powerplant','fire'],['Waste management and energy','cycle'],['Water and waste water treatment plant','drop']]],['Living and logistics',[['Dormitories and commercial area','bed'],['Domestic ports','ship']]]];
+PC.energy=()=>S(`
+<h2 style="margin-bottom:24px">Wiraraja Green Renewable Energy and Smart-Eco Industrial Park II</h2>
+<div class="sp top"><div>${slot('Render: park gateway','1600 × 1000 px',{ar:'16/10'})}</div>
+<div><p style="margin-bottom:14px">Wiraraja Green Renewable Energy and Smart-Eco Industrial Park II was established in 2023 at Galang Island, Riau Islands, Indonesia. Our Industrial Park aims to provide conducive environment with Smart-Eco Thematic Industrial Park Concept with total area of 851 ha.</p>
+${stats([['851','ha','total area'],['2023','','established']],'margin:22px 0 0')}</div></div>
+<h3 class="sub-h">Facilities and infrastructure</h3>
+${FAC2.map(g=>`<p style="font-weight:600;color:var(--hd);margin:26px 0 14px">${g[0]}</p><div class="g g3">${g[1].map(f=>slot(f[0],'Photo, 1200 × 900 px',{c:'tile',i:f[1]})).join('')}</div>`).join('')}
+<h3 class="sub-h">Location</h3>
+<div class="sp top"><div>${slot('Map: Galang Island, Barelang Bridge and Batam','1200 × 1200 px, square',{ar:'1/1',i:'pin'})}</div>
+<div><p style="margin-bottom:8px">Located in Galang Island, approximately 43 km, connected by Barelang (Batam-Rempang-Galang) Bridge which provides easy access road.</p>
+${dist([['factory','to Wiraraja Industrial Park I','1 hr 24 min'],['plane','to Hang Nadim Airport','1 hr 25 min'],['ship','to Batam Centre Ferry Terminal','1 hr 21 min'],['anchor','to Batu Ampar Seaport','1 hr 23 min']])}</div></div>
+<div style="margin-top:44px">${FTZ}${TEAM}</div>`);
+
+const ZN=[['Logistics and Warehousing Zone',189,'box','z1',['Container yard and freight forwarding','Distribution center','Cold storage','Stockpile and bulk material handling','Shipyard industry']],['Processing Industrial Zone',819,'factory','z2',['Food and seafood processing','Silica and glass industry','Petrochemical industry','Light to medium manufacturing']],['Halal Industrial Zone',324,'seal','z3',['Halal food industry','Halal cosmetics','Pharmaceutical and herbal products','Halal packaging']],['Digital Industrial Zone',420,'data','z4',['Data center','Smart manufacturing and IoT','IT and digital services','Research and development center']],['Reservoir',214,'drop','z6',[]],['Shipbuilding and Port Zone',34,'anchor','z5',[]]];
+const MD=[['Trunojoyo University',3,'cap','3 km'],['Kamal Seaport',8.2,'anchor','8.2 km'],['Bangkalan City',10.2,'building','10.2 km'],['Suramadu Bridge',13,'bridge','13 km'],['Surabaya City, capital of East Java Province',26.4,'building','26.4 km'],['Tanjung Perak Seaport',30,'anchor','30 km'],['Dupak Toll Gate',30.3,'road','30.3 km'],['Waru Toll Gate',37.6,'road','37.6 km'],['Romokalisari Toll Gate',40.3,'road','40.3 km'],['Juanda International Airport',46,'plane','46 km'],['JIPE Seaport',63,'anchor','63 km']];
+PC.madura=()=>S(`
+<h2 style="margin-bottom:6px">Wiraraja Madura Industrial Estate III</h2><p class="tag" style="margin-top:6px">Special Economic Zone (SEZ)</p>
+<div class="sp top"><div>${slot('Render: Madura estate gateway','1600 × 1000 px',{ar:'16/10'})}</div>
+<div><p style="font-size:19px;margin-bottom:6px;color:var(--hd)">The first integrated industrial, logistics, energy, and downstream-processing platform in Madura Island (Bangkalan).</p>
+${stats([['2,000','ha','total across all zones']],'margin:22px 0 8px')}
+<p style="font-size:13px">${tbd('cek: total 2.000 ha dijumlah dari legenda peta (189+819+324+420+214+34)')}</p></div></div>`)+
+`<section class="sec dk"><div class="w sp top"><div><h2>Benefits of Special Economic Zone</h2><p class="lead" style="margin-bottom:0">Driving sustainable national economic growth and strengthening Indonesia’s global competitiveness.</p></div>
+<div>${[['coins','Tax holiday and tax allowance'],['doc','Ease of customs'],['doc','Easy, fast and integrated licensing'],['building','World-class infrastructure'],['passport','Ease of visa and labor mobility'],['globe','Integration to global supply chain']].map(b=>`<div class="ben"><span class="ic">${ic(b[0])}</span>${b[1]}</div>`).join('')}</div></div></section>`+
+S(`<h3 class="sub-h">Zones across the estate</h3>
+<div class="zbar" role="img" aria-label="Zone areas as proportions of 2,000 hectares">${ZN.map(z=>`<i class="${z[3]}" style="width:${z[1]/20}%" title="${z[0]}, ${z[1]} ha"></i>`).join('')}</div>
+<div class="zleg">${ZN.map(z=>`<span><i class="${z[3]}"></i>${z[0]}, ${z[1]} ha</span>`).join('')}</div>
+<div class="g g3">${ZN.filter(z=>z[4].length).map(z=>`<div class="zc"><div class="ic">${ic(z[2])}</div><div class="ha">${z[1]}<small>ha</small></div><h3>${z[0]}</h3><ul>${z[4].map(u=>`<li>${u}</li>`).join('')}</ul></div>`).join('')}
+<div class="zc"><div class="ic">${ic('anchor')}</div><div class="ha">34<small>ha</small></div><h3>Shipbuilding and Port Zone</h3></div></div>
+<div style="margin-top:22px">${slot('Photo or map: estate zone map','1920 × 1000 px',{ar:'21/10',i:'globe'})}</div>
+
+<h3 class="sub-h">Built for business</h3>
+<div class="g g3">${[['road','Accessibility','Toll road and arterial connection'],['bolt','Reliable energy','Power plant and clean energy'],['drop','Water supply','Integrated water management'],['wifi','Digital infrastructure','High-speed internet and smart system'],['shield','Security','Integrated security system'],['leaf','Green and sustainable','Eco-industrial park concept']].map(x=>`<div class="card"><div class="ic">${ic(x[0])}</div><h3>${x[1]}</h3><p>${x[2]}</p></div>`).join('')}</div>
+
+<h3 class="sub-h">Location</h3>
+<p class="lead" style="margin-bottom:22px">Wiraraja Madura Industrial Estate III in relation to existing facilities and infrastructure. Strategic access. Strong connectivity. Limitless potential.</p>
+<div class="sp top"><div>${slot('Map: Java–Madura with distance rings','1200 × 1200 px, square',{ar:'1/1',i:'pin'})}</div><div>${dist(MD.map(m=>[m[2],m[0],m[3],Math.round(m[1]/63*100)]))}</div></div>
+<div style="margin-top:44px"><p style="margin-bottom:26px">Our team is always available for you to provide solutions to your needs. Do not hesitate to contact us in order to assist you finding the right investment solutions for your business.</p><div class="acts"><a class="btn bg" href="#contact">Contact Us</a><a class="btn bd" href="#" data-soon="PDF download: add the brochure link here.">${ic('download')}Download PDF</a></div></div>`);
+
+/* ---- INVESTMENT INSIGHTS ---- */
+const TT=[['plane','Hang Nadim Airport',16],['ship','Batam Centre Ferry Terminal',24],['ship','Nongsapura Ferry Terminal',29],['bag','Nagoya Shopping Centre',33],['anchor','Batu Ampar Seaport',34],['ship','Sekupang Ferry Terminal',42]];
+const ADV=[
+['pin','Strategic location',[['globe','Strategic maritime location','Batam sits next to two vital international sea routes, the Malacca Strait and the Singapore Strait.'],['ship','Easy access to Singapore','Just 20 km from Singapore, reached by a 40-minute ferry ride. Johor Bahru, Malaysia is around 2 hours away.'],['shield','Free Trade Zone','FTZ status provides a competitive advantage to export-oriented business in an investment-friendly city.'],['anchor','Ports and airport nearby','Easy access to cargo ports, ferry terminals, and Hang Nadim Airport.']]],
+['factory','Infrastructure',[['plane','Premier air connectivity','An international airport with the longest runway in Indonesia, at 4.025 km.'],['anchor','Maritime access hub','5 international passenger ports and 4 cargo ports make Batam a maritime gateway.'],['bridge','Bridge to connectivity','Batam, Rempang and Galang are connected by 6 bridges.'],['drop','Abundant water','7 reservoirs with a capacity of 3,535 liters per second.'],['cycle','Wastewater management','A treatment plant with 230 liters per second capacity separates biological and chemical waste from water.'],['bolt','Reliable electricity','538.95 MW of installed capacity for an uninterrupted power supply.'],['wifi','Communication','111,700 phone line units and a fibre optic backbone of up to 1 Gbps.'],['data','IT and disaster recovery','The BP Batam IT service center provides technology solutions backed by disaster recovery.']]],
+['coins','Competitive investment cost',[['coins','Taxation','VAT and luxury goods VAT exemption on machinery, equipment, raw material and spare parts. Income Tax Article 22 exemption on imports for production. GSP import duty deductions. Tax treaties with 56 countries.'],['users','Labor',null],['passport','Visa and immigration',null],['factory','Industry focus',null],['chart','Latest investment data',null]]],
+['seal','Facilities and incentives',[['shield','Free Trade Zone (Batam)','Provides a competitive advantage in export-oriented business, whether in manufacturing, operations, or trade activities.'],['building','What our Batam park offers','Ready-built factories, industrial land lots, professional estate management, integrated infrastructure, and access to ports.'],['coins','SEZ incentives at Madura','Tax holiday and tax allowance, ease of customs, easy, fast and integrated licensing, ease of visa and labor mobility.'],['doc','FTZ incentive details',null]]]];
+PG.invest=()=>`
+<header class="ph"><div class="w rise"><p class="eb">Invest in Batam</p><h1>Investment Insights</h1><i class="rule"></i><p>Unlocking Opportunities in Batam</p></div></header>
+<section class="sec"><div class="w sp top"><div><h2 style="font-size:clamp(26px,3vw,34px)">Where Strategic Location Meets Investment-Friendly City</h2>
+<h3 style="margin:26px 0 10px"><span class="hlt">Why Invest in Batam?</span></h3><p>Batam offers a wide range of industrial facilities, including factories, warehouses, and distribution/logistic centers. The city is strategically located, providing easy access to cargo ports, ferry terminals, and Hang Nadim Airport. Batam boasts integrated infrastructures and facilities designed to meet your business needs with competitive prices offering you a cost-effectiveness operation in a Free Trade Zone (FTZ).</p>
+<h3 style="margin:26px 0 10px"><span class="hlt">Why Wiraraja Indonesia?</span></h3><p style="margin-bottom:12px">For investors, our location emerges as an attractive investment to establish a new hub of manufacturing and distribution. With its strategically advantageous location and state-of-the-art facilities, it stands out as a prime selection for enterprises aiming to prosper in the manufacturing and trade landscapes.</p><p>Wiraraja Indonesia is strategically located in Batam, Riau Islands, Indonesia, a strategic location with Free Trade Zone (FTZ) benefits. Free Trade Zone (FTZ) provides us a competitive advantage in export oriented business with an investment-friendly city.</p></div>
+<div>${slot('Map: Batam, Singapore, Malaysia and the region','1200 × 1400 px, portrait',{ar:'6/7',i:'globe'})}<div class="g g2" style="margin-top:14px;gap:14px">${[['40','min','ferry to Singapore'],['2','hours','to Johor Bahru, Malaysia']].map(s=>`<div class="card" style="padding:18px 20px"><div style="font:700 34px/1.1 'Playfair Display';color:var(--hd)">${s[0]}<small style="font:600 15px Inter;margin-left:4px">${s[1]}</small></div><p style="font-size:14px">${s[2]}</p></div>`).join('')}</div></div></div></section>
+
+<section class="sec" style="padding-top:0"><div class="w"><div class="hl">
+<div class="hl-h"><div><h2>Everything within 45 minutes</h2><p>Cargo ports, ferry terminals, the airport and shopping are a short drive from Wiraraja Industrial Park I.</p></div><div class="hl-big"><b>40<small>min</small></b><span>ferry crossing to Singapore</span></div></div>
+<div class="hl-g seen-g" id="tt">${TT.map(t=>`<div class="hl-t">${ic(t[0])}<span class="m"><span class="c" data-n="${t[2]}">${t[2]}</span><small>min</small></span><span class="n">${t[1]}</span><i class="hbar" style="--w:${Math.round(t[2]/45*100)}%"></i></div>`).join('')}</div>
+<p class="hl-f">Travel times are measured from Wiraraja Industrial Park I.</p></div></div></section>
+
+<section class="sec alt"><div class="w"><p class="eb">Why Batam</p><h2 style="margin-bottom:26px">Investment advantages in Batam</h2>
+${tabs('adv',ADV.map(a=>[a[0],a[1]]))}
+${ADV.map((a,i)=>`<div class="det" role="tabpanel" data-pn="adv" data-i="${i}" ${i?'hidden':''}>${i==2?`<p class="lead" style="margin-bottom:22px">Competitive prices offering you a cost-effective operation in a Free Trade Zone (FTZ).</p>`:''}<div class="g ${a[2].length==8?'g4':a[2].length==5?'g3':(a[2].length==4?'g2':'g3')}">${a[2].map(c=>`<div class="card"><div class="ic">${ic(c[0])}</div><h3>${c[1]}</h3><p>${c[2]||tbd('isi: ringkasan '+c[1].toLowerCase()+' dari website asli')}</p></div>`).join('')}</div></div>`).join('')}</div></section>
+
+<section class="sec"><div class="w"><p class="eb">Know the Island</p><h2>About Batam</h2>
+<div class="sp top c1" style="margin-top:34px"><div class="vtabs" role="tablist">${['Geography','Map of Indonesia','Population and workforce','Ferry terminal and cargo','Universities and polytechnics'].map((t,i)=>`<button class="tab" role="tab" data-tg="bat" data-i="${i}" aria-selected="${i==0}">${t}</button>`).join('')}</div>
+<div>
+<div class="det" role="tabpanel" data-pn="bat" data-i="0">${slot('Photo: Barelang Bridge, Batam','1600 × 900 px',{})}<h3 style="margin-top:22px">Geography</h3>${stats([['715','km²','land area'],['1,575','km²','total area'],['26–34','°C','average temperature']],'margin:14px 0 18px')}<ul class="ck"><li>Strategically located in Riau Islands with a close proximity to Singapore and Malaysia.</li><li>A tropical climate, with an average temperature ranging from 26 to 34 degrees Celsius.</li><li>Hilly and valley terrain with predominantly less fertile red soil.</li><li>Frequently changing weather makes it suitable for crops that can grow without adhering to specific seasons.</li></ul></div>
+<div class="det" role="tabpanel" data-pn="bat" data-i="1" hidden>${slot('Map of Indonesia showing Batam','1600 × 1000 px',{ar:'16/10',i:'globe'})}</div>
+<div class="det" role="tabpanel" data-pn="bat" data-i="2" hidden><h3>Population and workforce</h3>${stats([['1,269,410','','population in 2022']],'margin:14px 0 18px')}<ul class="ck"><li>A diverse, heterogeneous population with varied ethnicities, traditions, and religions.</li><li>People come from different parts of Indonesia, making Batam multicultural.</li><li>The population is projected to grow with rapid industrial development and expansion.</li></ul></div>
+<div class="det" role="tabpanel" data-pn="bat" data-i="3" hidden><h3>Ferry terminal and cargo</h3><ul class="ck"><li>Batam Passenger Port and Batam Cargo Port serve distinct yet interrelated purposes.</li><li>The Passenger Ferry Terminal connects the city to Singapore and Malaysia with a wide range of ferries.</li><li>The Cargo Port oversees the import and export of goods, moving cargo efficiently between Batam and global markets.</li></ul></div>
+<div class="det" role="tabpanel" data-pn="bat" data-i="4" hidden><h3>Universities and polytechnics</h3><div class="svc"><div><b style="color:var(--hd)">Universities in Riau Islands</b><ul class="ck">${['Universitas Internasional Batam','Universitas Putera Batam','Universitas Batam','Universitas Riau Kepulauan','Universitas Terbuka','Universitas Maritim Raja Ali Haji','Universitas Karimun'].map(u=>`<li>${u}</li>`).join('')}</ul></div><div><b style="color:var(--hd)">Polytechnics in Riau Islands</b><ul class="ck"><li>Politeknik Negeri Batam</li><li>Politeknik Pariwisata Batam</li></ul></div></div></div>
+</div></div></div></section>
+
+<section class="cta"><div class="w"><h2>See where your business fits</h2><p>Our team is always available to help you find the right investment solution.</p><div class="acts"><a class="btn bg" href="#contact">Contact us</a><a class="btn bl" href="#pillars">Explore business pillars</a></div></div></section>`;
+
+/* ---- CSR ---- */
+const CS=[['building','Community-led transformation','Wiraraja Indonesia is dedicated to addressing global challenges. We strive to bring about real change through best practices and active community participation by providing employment opportunities regardless of gender, race, religion, and background, with on-the-job training to improve the local community’s skills and knowledge in the workplace.'],['users','Community-Centered Welfare','Our rapid development fosters a commitment to improving the welfare of our neighboring communities.'],['link','Collaborative Engagement','We actively engage and work closely with local stakeholders, including government officials, organizations, and tenants of Wiraraja Industrial Park to create meaningful and impactful activities that will give positive impact on Batam and Riau Islands.'],['cog','Community-Driven Initiatives','We initiate and welcome ideas, feedback and aspirations from the local community. With our support, we instill a community-driven solutions that ultimately benefit and uplift the community.']];
+PG.csr=()=>`
+<header class="ph"><div class="w rise"><p class="eb">Our Commitment</p><h1>Corporate Social Responsibilities</h1><i class="rule"></i><p>Great Visions Start With Great Responsibility</p></div></header>
+<section class="sec"><div class="w"><div class="flogo"><span class="mark"><svg viewBox="0 0 24 24"><path d="M12 2l2.9 6.3 6.9.7-5.2 4.6 1.5 6.8L12 17l-6.1 3.4 1.5-6.8L2.2 9l6.9-.7z"/></svg></span><b>WIRARAJA FOUNDATION</b></div>
+<div style="display:grid;gap:14px;max-width:820px"><p style="max-width:none">Recognizing the urgency and severity of the challenges faced by humanity, Wiraraja Indonesia, acts to bring best practices and inspiring participations to drive positive impact on the local communities through a more sustainable CSR approach aimed at environmental and social improvements.</p><p style="max-width:none">As our company keeps expanding our business, we are encouraged to built on the balance between economic, environmental and social concerns and to drive our employees contributing positive impact on the society. The effort to improve the welfare of the society is reflected in the implementation of Wiraraja Corporate Social Responsibility (CSR) approach taking into account the needs of our local community.</p></div>
+<div class="g g2" style="margin-top:38px">${slot('Video: Wiraraja Foundation activity 1','YouTube link plus 1280 × 720 px thumbnail',{i:'play'})}${slot('Video: Wiraraja Foundation activity 2','YouTube link plus 1280 × 720 px thumbnail',{i:'play'})}</div></div></section>
+<section class="sec alt"><div class="w sp top c2"><div style="position:sticky;top:100px"><p class="eb">About our CSR initiatives</p><h2>Driving Positive Change Through Corporate Social Responsibility</h2><p>Wiraraja Indonesia is dedicated to creating positive change through Corporate Social Responsibility (CSR). Our community-focused initiatives, driven by local input, address urgent challenges and improve the welfare of our surrounding communities.</p></div>
+<div class="g g2">${CS.map(c=>`<div class="card"><div class="ic">${ic(c[0])}</div><h3>${c[1]}</h3><p>${c[2]}</p></div>`).join('')}</div></div></section>`;
+
+/* ---- CONTACT ---- */
+PG.contact=()=>`
+<header class="ph"><div class="w rise"><p class="eb">Get In Touch</p><h1>Contact Us</h1><i class="rule"></i><p>Our team is always available for you to provide solutions to your needs.</p></div></header>
+<section class="sec"><div class="w sp top c3"><div><h2 style="font-size:30px">Contact information</h2>
+${[['pin','Head Office','Jl. Wiraraja Industrial Estate<br>Blok A No. 1 - 5, Kabil, Nongsa,<br>Batam City, Riau Islands<br>Indonesia 29467'],['phone','Phone','(+62) 778-7100798'],['mail','Email','market@wiraraja.com'],['clock','Operational Hour','Mon - Fri : 08:00 - 17:00 (GMT+7)<br>Sat : 08:00 - 12:00 (GMT+7)<br>Closed on Sunday &amp; PH']].map(c=>`<div class="ci"><div class="ic">${ic(c[0])}</div><div><b>${c[1]}</b><span>${c[2]}</span></div></div>`).join('')}
+<div class="soc" id="csoc"></div><div style="margin-top:26px">${slot('Map: head office location','1200 × 700 px',{ar:'12/7',i:'pin'})}</div></div>
+<div class="card"><h2 style="font-size:28px">Submit your enquiry</h2><form id="fm"><div class="fr"><label>Company name<input placeholder="PT Example" required></label><label>Industry type<input placeholder="Manufacturing"></label></div><div class="fr"><label>Name<input placeholder="Full name" required></label><label>Job role<input placeholder="Director"></label></div><div class="fr"><label>Email<input type="email" placeholder="you@company.com" required></label><label>Phone number<input type="tel" placeholder="+62 ..."></label></div><label>Subject<input placeholder="Partnership inquiry"></label><label>Message<textarea placeholder="Tell us about your business needs..."></textarea></label><button class="btn bd" style="justify-self:start;padding:14px 32px">Submit enquiry</button></form></div></div></section>`;
+
+/* ============ ENGINE ============ */
+const pages=[['home','Home'],['about','About Us'],['pillars','Business Pillars'],['invest','Investment Insights'],['csr','CSR'],['contact','Contact Us']];
+pages.forEach(p=>{$('#'+p[0]).innerHTML=PG[p[0]]()});
+$('#nav').innerHTML=pages.map(p=>`<a href="#${p[0]}">${p[1]}</a>`).join('');
+const SOC=['insta','linkedin','youtube'].map((s,i)=>`<a href="#" aria-label="${['Instagram','LinkedIn','YouTube'][i]}" data-soon="Add the ${['Instagram','LinkedIn','YouTube'][i]} link here.">${ic(s)}</a>`).join('');
+$('#fsoc').innerHTML=SOC;$('#csoc').innerHTML=SOC;
+
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(!e.isIntersecting)return;const el=e.target;io.unobserve(el);
+ if(el.classList.contains('c')){const n=+el.dataset.n;el.dataset.done=1;if(reduce)return;const t0=performance.now();(function f(t){const p=Math.min((t-t0)/1200,1);el.textContent=Math.round(n*(1-Math.pow(1-p,3)));if(p<1)requestAnimationFrame(f)})(t0)}
+ else el.classList.add('seen')}),{threshold:.25});
+function watch(){$$('.c,.dist,.tli,.hl-g').forEach(el=>{if(!el.offsetParent||el.dataset.done||el.classList.contains('seen'))return;if(reduce&&!el.classList.contains('c'))el.classList.add('seen');else io.observe(el)})}
+
+let cur='park';
+function showPillar(k){cur=k;
+ $('#psel').innerHTML=PS.map(p=>`<button class="pcard" role="tab" data-pk="${p[0]}" aria-selected="${p[0]==k}"><span class="pi">${ic(p[1])}</span><span><small>${p[2]}</small><b>${p[3]}</b><em>${p[4]}</em></span><span class="pk">${ic('check')}</span></button>`).join('');
+ const d=$('#pd');d.innerHTML=PC[k]();d.classList.remove('det');void d.offsetWidth;d.classList.add('det');watch()}
+function route(){
+ const [h0,sub]=(location.hash||'#home').slice(1).split('/');
+ const id=pages.some(p=>p[0]==h0)?h0:'home';
+ $$('.pg').forEach(e=>e.classList.toggle('on',e.id==id));
+ $$('#nav a').forEach(a=>{const on=a.hash=='#'+id;a.classList.toggle('on',on);on?a.setAttribute('aria-current','page'):a.removeAttribute('aria-current')});
+ if(id=='pillars')showPillar(['park','energy','madura'].includes(sub)?sub:cur);
+ scrollTo({top:0,behavior:'instant'});watch()}
+addEventListener('hashchange',route);
+
+let tt;
+function toast(m){const t=$('#toast');t.textContent=m;t.classList.add('on');clearTimeout(tt);tt=setTimeout(()=>t.classList.remove('on'),3200)}
+document.addEventListener('click',e=>{
+ const s=e.target.closest('[data-soon]');if(s){e.preventDefault();toast(s.dataset.soon);return}
+ const pk=e.target.closest('[data-pk]');if(pk){const k=pk.dataset.pk;try{history.replaceState(null,'','#pillars/'+k)}catch(_){}showPillar(k);$('#pd').scrollIntoView({behavior:reduce?'auto':'smooth',block:'start'});return}
+ const b=e.target.closest('[data-tg]');if(!b)return;
+ const g=b.dataset.tg,i=b.dataset.i;
+ $$(`[data-tg="${g}"]`).forEach(x=>x.setAttribute('aria-selected',x===b));
+ $$(`[data-pn="${g}"]`).forEach(p=>p.hidden=p.dataset.i!==i)});
+$('#fm').onsubmit=e=>{e.preventDefault();e.target.reset();toast('Enquiry sent. Thank you, our team will get back to you.')};
+
+/* glow follows cursor, scroll progress, timeline fill */
+document.addEventListener('mousemove',e=>{if(reduce)return;const h=e.target.closest&&e.target.closest('.hero,.ph');if(!h)return;const r=h.getBoundingClientRect();h.style.setProperty('--mx',(e.clientX-r.left)+'px');h.style.setProperty('--my',(e.clientY-r.top)+'px')});
+const bar=$('#prog'),tl=$('#tl');
+function sc(){const h=document.documentElement,max=h.scrollHeight-innerHeight;bar.style.width=(max>0?h.scrollTop/max*100:0)+'%';
+ if(tl&&tl.offsetParent){const r=tl.getBoundingClientRect();tl.style.setProperty('--p',Math.max(0,Math.min(1,(innerHeight*.65-r.top)/r.height))*100+'%')}}
+addEventListener('scroll',sc,{passive:true});addEventListener('resize',sc);addEventListener('hashchange',()=>setTimeout(sc,60));
+route();sc();
+
+/* v9: dynamic touches */
+const rvo=new IntersectionObserver(es=>es.forEach(e=>{if(!e.isIntersecting)return;const t=e.target;t.classList.add('rv-in');rvo.unobserve(t);setTimeout(()=>{t.classList.remove('rv','rv-in');t.style.transitionDelay=''},950)}),{threshold:.12});
+function dyn(){
+ $$('.stat-num').forEach(el=>{if(!el.offsetParent||el.dataset.done)return;el.dataset.done=1;const m=el.textContent.match(/^(\d+)(.*)$/);if(!m||reduce)return;const n=+m[1],t=m[2],t0=performance.now();(function f(t1){const p=Math.min(1,(t1-t0)/1200),e=1-Math.pow(1-p,3);el.textContent=Math.round(n*e)+t;if(p<1)requestAnimationFrame(f)})(t0)});
+ if(reduce)return;
+ $$('.sec .eb,.sec>.w>h2,.card,.pp,.vm,.vd,.zc,.ci,.stm>*,.tli,.sr>div').forEach((el,i)=>{if(!el.offsetParent||el.dataset.rv)return;el.dataset.rv=1;if(el.getBoundingClientRect().top<innerHeight*.9)return;el.classList.add('rv');el.style.transitionDelay=(i%4)*70+'ms';rvo.observe(el)})}
+const _w=watch;watch=function(){_w();dyn()};
+addEventListener('scroll',()=>$('.nav').classList.toggle('sc',scrollY>8),{passive:true});
+dyn();
+</script></body></html>
